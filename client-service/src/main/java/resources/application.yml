@@ -1,0 +1,13 @@
+
+
+grpc:
+  client:
+    grpc-example-service:
+      address: static://localhost:8080
+      enable-keep-alive: true
+      keep-alive-without-calls: true
+      negotiation-type: plaintext
+
+
+
+

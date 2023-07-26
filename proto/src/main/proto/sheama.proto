@@ -20,12 +20,18 @@ message Author {
   int32 book_id = 5;
 }
 
+message AuthorIdRequest {
+  int32 id = 1;
+}
+
 
 service BookAuthorService {
 
   //unary - synchronous
   //client will send one request and server will respond with one response.
   rpc getAuthor(Author) returns(Author){}
+
+  rpc getAuthorById (AuthorIdRequest) returns (Author) {}
 
   //sever streaming - Asynchronous
   //client will send one request and server will send stream of response to the client.
@@ -38,4 +44,5 @@ service BookAuthorService {
   //bi-directional streaming - Asynchronous
   //client will send stream of request and server will respond with stream of response.
   rpc getBooksByGender(stream Book) returns (stream Book) {}
+
 }
